@@ -1,0 +1,49 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">Favorites</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>My Favorites</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12" ng-if="!showMenu">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="col-xs-12" ng-if="showMenu">
+                 <ul class="media-list">
+                   <li class="media m-item" ng-repeat="favorite in favorites">
+                        <div class="media-left media-middle">
+                            <a>
+                            <img class="media-object img-rounded"
+                            ng-src="images/tutor.png" alt="Tutor" width="100px" height="100px">
+                            </a>
+                        </div>
+                        <div class="media-body" ng-init="tutor = favorite.tutor">
+                            <h3 class="media-heading">{{tutor.name}} {{tutor.surname}} <a ng-click="deleteFavoriteTutor(favorite.id)" class="heart-full"><i class="fa fa-heart"></i></a></h3>
+                            <p>
+                                <i class="fa {{tutor.stars.star1}} icon-stars"></i>
+                                <i class="fa {{tutor.stars.star2}} icon-stars"></i>
+                                <i class="fa {{tutor.stars.star3}} icon-stars"></i>
+                                <i class="fa {{tutor.stars.star4}} icon-stars"></i>
+                                <i class="fa {{tutor.stars.star5}} icon-stars"></i>
+                                <a ui-sref="app.tutordetails({id: tutor.id, section: 'reviews'})">({{tutor.reviews.length}} review<span ng-show="tutor.reviews.length>1">s</span>)</a>
+                            </p>
+                            <p>Subjects: <span ng-repeat="subject in tutor.subjects">{{subject.name}}<span ng-show="!$last">, </span></span></p>
+                            <p>Price per hour: {{tutor.price}}€</p>
+                            <p>Distance: {{tutor.distance}}m</p>
+                        </div>
+                       <div class="media-right media-middle">
+                            <a ui-sref="app.tutordetails({id: tutor.id})" class="btn btn-success" href="">View tutor</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

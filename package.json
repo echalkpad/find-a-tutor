@@ -1,0 +1,36 @@
+{
+  "name": "Find-a-tutor",
+  "description": "Find a Tutor Server application created with StrongLoop, LoopBack and Bluemix Mobile Services",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node .",
+    "pretest": "jshint .",
+    "posttest": "nsp check"
+  },
+  "author": "Ignacio Capilla",
+  "dependencies": {
+    "bms-mca-token-validation-strategy": "^2.0.3",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^1.3.0",
+    "loopback": "^2.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^2.4.0",
+    "loopback-component-storage": "^1.8.1",
+    "loopback-connector-cloudant": "^1.0.4",
+    "loopback-datasource-juggler": "^2.39.0",
+    "loopback-ds-timestamp-mixin": "^3.2.4",
+    "passport": "^0.3.2",
+    "serve-favicon": "^2.0.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.6",
+    "nsp": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morwust/find-a-tutor"
+  },
+  "license": "Apache-2.0"
+}

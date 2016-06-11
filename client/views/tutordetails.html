@@ -1,0 +1,131 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="#">Home</a></li>
+                   <li><a ui-sref="app.searchresult({postcode: tutor.postcode})">Postcode: {{tutor.postcode}}</a></li>
+                   <li class="active">{{tutor.name}} {{tutor.surname}}</li>
+               </ul>
+            </div>
+        </div>
+        <div class="row row-content roundbk">
+            <div class="col-xs-12 col-sm-8 col-sm-push-2" ng-if="!showTutor">
+                <h3>{{messageTutor}}</h3>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-sm-push-2" ng-if="showTutor">
+                <div class="media-left media-middle">
+                    <a>
+                    <img class="media-object img-rounded"
+                    ng-src="images/tutor.png" alt="Tutor" width="100px" height="100px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading">{{tutor.name}} {{tutor.surname}} 
+                        <a ng-click="deleteFavoriteTutor(tutor.favorites)" class="heart-full" ng-if="isCurrentUserFavorite(tutor.favorites)"><i class="fa fa-heart"></i></a>
+                        <a ng-click="saveFavoriteTutor(tutor.id)" ng-if="!isCurrentUserFavorite(tutor.favorites)"><i class="fa fa-heart-o"></i></a>
+                    </h3>
+                    <p>
+                        <i class="fa {{tutor.stars.star1}} icon-stars"></i>
+                        <i class="fa {{tutor.stars.star2}} icon-stars"></i>
+                        <i class="fa {{tutor.stars.star3}} icon-stars"></i>
+                        <i class="fa {{tutor.stars.star4}} icon-stars"></i>
+                        <i class="fa {{tutor.stars.star5}} icon-stars"></i>
+                        <a ng-click="select(2)">({{tutor.reviews.length}} review<span ng-show="tutor.reviews.length>1">s</span>)</a>
+                    </p>
+                    <p>Subjects: <span ng-repeat="subject in tutor.subjects">{{subject.name}}<span ng-show="!$last">, </span></span></p>
+                    <p>Price per hour: {{tutor.price}}€</p>
+                    <p>Distance: {{tutor.distance}}m</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-sm-push-2" ng-if="!showTabs">
+                <h3>{{messageTabs}}</h3>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-sm-push-2" ng-if="showTabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{active:isSelected(1)}">
+                    <a ng-click="select(1)" aria-controls="bio" role="tab">Bio</a></li>
+                    
+                    <li role="presentation" ng-class="{active:isSelected(2)}">
+                    <a ng-click="select(2)" aria-controls="review" role="tab">Review<span ng-show="tutor.reviews.length>1">s</span> ({{tutor.reviews.length}})</a></li>
+                        
+                    <li role="presentation" ng-class="{active:isSelected(3)}">
+                    <a ng-click="select(3)" aria-controls="contact" role="tab">Contact</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div ng-if="isSelected(1)" class="m-item">
+                        <div ng-if="!showTutor">
+                            <h4>{{messageTutor}}</h4>
+                        </div>
+                        <div ng-if="showTutor">
+                            <p>{{tutor.bio}}</p>
+                            <p><i class="fa fa-home"></i> {{tutor.address}}</p>
+                            <p><i class="fa fa-phone"></i> {{tutor.telephone}}</p>
+                            <p><i class="fa fa-envelope"></i> <a ng-click="select(3)">Leave a message</a></p>
+                        </div>
+                    </div>
+                    <div ng-if="isSelected(2)">
+                        <div ng-if="!showTutor">
+                            <h4>{{messageTutor}}</h4>
+                        </div>
+                        <div ng-if="showTutor" class="m-item">
+                            <ul class="media-list">
+                               <li class="media" ng-repeat="review in tutor.reviews">
+                                    <div class="media-body">
+                                        <p>
+                                            <i class="fa {{returnStarClass(1,review.rating)}} icon-stars"></i>
+                                            <i class="fa {{returnStarClass(2,review.rating)}} icon-stars"></i>
+                                            <i class="fa {{returnStarClass(3,review.rating)}} icon-stars"></i>
+                                            <i class="fa {{returnStarClass(4,review.rating)}} icon-stars"></i>
+                                            <i class="fa {{returnStarClass(5,review.rating)}} icon-stars"></i>
+                                            <span>{{review.customer.name}} {{review.customer.surname}}</span>
+                                        </p>
+                                        <p>{{review.review}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p style="padding:5px;"></p>
+                            <h3>Leave your review</h3>
+                            <form role="form" name="reviewForm" ng-submit="sendReview()" novalidate>
+                                <div class="form-group">
+                                    <label class="col-sm-2">Rating</label>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"><input type="radio" id="1rating" name="rating" value="1" ng-model="myreview.rating"> 1</label>
+                                        <label class="radio-inline"><input type="radio" id="2rating" name="rating" value="2" ng-model="myreview.rating"> 2</label>
+                                        <label class="radio-inline"><input type="radio" id="3rating" name="rating" value="3" ng-model="myreview.rating"> 3</label>
+                                        <label class="radio-inline"><input type="radio" id="4rating" name="rating" value="4" ng-model="myreview.rating"> 4</label>
+                                        <label class="radio-inline"><input type="radio" id="5rating" name="rating" value="5" ng-model="myreview.rating"> 5</label>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" id="review" name="review" rows="7" ng-model="myreview.review" placeholder="Leave your review" required></textarea>
+                                <p style="padding:5px;"></p>
+                                <button type="submit" class="btn btn-success" ng-disabled="reviewForm.$invalid">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div ng-if="isSelected(3)">
+                        <div ng-if="!showMessages">
+                            <h4>{{messageMsg}}</h4>
+                        </div>
+                        <div ng-if="showMessages" class="m-item">
+                            <ul class="media-list">
+                               <li class="media" ng-repeat="message in messages">
+                                    <div class="media-body">
+                                        <p><h4 class="media-heading">{{message.customer.name}} {{message.customer.surname}} ({{message.date | date:'medium'}})</h4></p>
+                                        <p>{{message.message}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <form role="form" name="feedbackForm" ng-submit="sendFeedback()" novalidate>
+                                <textarea class="form-control" id="feedback" name="feedback" rows="12" ng-model="mymessage.message" placeholder="Leave a message"></textarea>
+                                <p style="padding:5px;"></p>
+                                <button type="submit" class="btn btn-success" ng-disabled="feedbackForm.$invalid">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content">
+            <p style="padding:6px;"></p>
+        </div>
+    </div>

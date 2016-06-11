@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "Customer": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Tutor": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Review": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Subject": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Error": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "Favorite": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "TutorSubject": {
+    "dataSource": "Cloudant",
+    "public": true
+  }
+}

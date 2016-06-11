@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 2048M
+  instances: 1
+  domain: mybluemix.net
+  name: Find a tutor
+  host: Find-a-tutor
+  disk_quota: 1024M
+  services:
+  - Mobile Client Access-wi
+  - Push Notifications-et
+  - Cloudant NoSQL DB-0p

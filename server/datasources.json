@@ -1,0 +1,21 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "images": {
+    "name": "images",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./client/"
+  },
+  "Cloudant": {
+    "url": "https://0fa1ba64-6db7-472b-a4c9-b6ff807568f9-bluemix:a6716731f86153b157e4e1916da0f45cfcb98f91f78faa35f9abd050ab9d82dd@0fa1ba64-6db7-472b-a4c9-b6ff807568f9-bluemix.cloudant.com",
+    "database": "find-a-tutor",
+    "username": "0fa1ba64-6db7-472b-a4c9-b6ff807568f9-bluemix",
+    "password": "a6716731f86153b157e4e1916da0f45cfcb98f91f78faa35f9abd050ab9d82dd",
+    "name": "Cloudant",
+    "modelIndex": "",
+    "connector": "cloudant"
+  }
+}

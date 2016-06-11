@@ -1,0 +1,179 @@
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  /* border-bottom: 1px ridge;
+  min-height: 400px; */
+}
+.row-footer {
+  margin: 0px auto;
+  padding: 20px 0px;
+  background-color: #ddfcd8;
+}
+.icon-home{
+  font-size: 70px;
+}
+.icon-stars{
+  color: black;
+}
+.m-item{
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 30px;
+}
+.s-media > a{
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+    color: black;
+} 
+.s-media-active > a{
+  background: #2f9f34;
+    color: white;
+}
+.s-media > a:hover{
+  background: #2f9f34;
+    color: white;
+}
+.s-media > a:focus{
+  background: #2f9f34;
+    color: white;
+}
+.has-feedback-left input.form-control {
+    padding-left: 34px; /* @input-height-base; */
+    padding-right: 12px; /* @padding-base-horizontal */
+}
+
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}
+.heart-full{
+    color: red;
+}
+.step-number {
+  float: left;
+  font-size: 70px;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+.step-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.roundbk{
+  background-color: #ddfcd8;
+  border-radius: 10px;
+}
+.left-menu{
+    padding: 0 0 15px 10px;
+    margin-bottom: 20px;
+}
+.jumbotron {
+  margin: 0px auto;
+  padding: 70px 30px;
+  background: #77cc84;
+  color: floralwhite;
+}
+.container-image{
+  background: url("../images/tutoring.png") no-repeat;
+}
+.carousel {
+  background: #188125;
+}
+.carousel .item {
+  height: 300px;
+}
+.carousel .item img {
+  left: 0;
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+}
+.navbar-inverse {
+  background: #2f9f34;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background: #188125;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  background-color: #2f9f34;
+  color: #000;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #000;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+  background-color: #2f9f34;
+  color: #000;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+address {
+  color: #0f0f0f;
+  font-size: 80%;
+  margin: 0px;
+}
+body {
+  align: center;
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+}
+.tab-content {
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  padding: 10px;
+}
+.affix {
+  top: 100px;
+}
+#carouselButtons {
+  bottom: 0px;
+  position: absolute;
+  right: 0px;
+}

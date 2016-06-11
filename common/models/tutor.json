@@ -1,0 +1,76 @@
+{
+  "name": "Tutor",
+  "plural": "Tutors",
+  "base": "Customer",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "price": {
+      "type": "number"
+    },
+    "distance": {
+      "type": "number"
+    },
+    "image": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "postcode": {
+      "type": "string",
+      "required": true
+    },
+    "telephone": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "tutorId"
+    },
+    "favorites": {
+      "type": "hasMany",
+      "model": "Favorite",
+      "foreignKey": "tutorId"
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": "tutorId"
+    },
+    "subjects": {
+      "type": "hasMany",
+      "model": "Subject",
+      "foreignKey": "tutorId",
+      "through": "TutorSubject"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
